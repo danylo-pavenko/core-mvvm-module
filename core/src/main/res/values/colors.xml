@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="snackbarError">#F44336</color>
+    <color name="white">#FFFFFF</color>
+    <color name="snackbarSuccess">#41B85E</color>
+    <color name="black">#000000</color>
+</resources>
