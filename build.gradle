@@ -9,6 +9,7 @@ buildscript {
         classpath deps.kotlin.plugin
         classpath deps.navigation.safe_args_plugin
         classpath deps.koin.plugin
+        classpath deps.maven_plugin
     }
     repositories {
         google()

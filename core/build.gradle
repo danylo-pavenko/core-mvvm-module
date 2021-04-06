@@ -3,7 +3,10 @@ plugins {
     id 'kotlin-android'
     id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-kapt'
+    id 'com.github.dcendents.android-maven'
 }
+
+group='com.github.Daniil-Pavenko'
 
 android {
     compileSdkVersion build_versions.compile_sdk

@@ -86,6 +86,7 @@ versions.image_picker = "1.8"
 versions.lib_phone_number = "8.12.16"
 versions.app_lifecycle = "1.1.0.0"
 versions.install_ref = "2.2"
+versions.maven_plugin = "2.1"
 ext.versions = versions
 
 def build_versions = [:]
@@ -104,6 +105,8 @@ deps.activity = activity
 deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
 
 deps.google_services = "com.google.gms:google-services:$versions.google_services"
+
+deps.maven_plugin = "com.github.dcendents:android-maven-gradle-plugin:$versions.maven_plugin"
 
 deps.crashlytics = "com.google.firebase:firebase-crashlytics-gradle:$versions.crashlytics"
 
