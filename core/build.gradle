@@ -1,9 +1,9 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
-    id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-kapt'
     id 'com.github.dcendents.android-maven'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 group='com.github.Daniil-Pavenko'
@@ -45,6 +45,7 @@ dependencies {
     implementation deps.app_compat
     implementation deps.material
     implementation deps.core_ktx
+    implementation deps.fragment.runtime_ktx
     implementation deps.constraint_layout
     implementation deps.browser
     implementation deps.arch_core.runtime
