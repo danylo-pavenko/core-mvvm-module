@@ -18,7 +18,7 @@ Quick Start:
 2. Add dependencies.
 ```gradlew
     dependencies {
-	        implementation 'com.github.Daniil-Pavenko:core-mvvm-module:1.0.1'
+	        implementation 'com.github.Daniil-Pavenko:core-mvvm-module:1.0.3'
     }
 ```
 
