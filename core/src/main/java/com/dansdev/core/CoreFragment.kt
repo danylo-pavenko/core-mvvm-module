@@ -12,6 +12,7 @@ import androidx.viewbinding.ViewBinding
 import com.dansdev.core.model.AlertMessage
 import com.dansdev.core.util.alert.snackbarErr
 import com.dansdev.core.util.alert.snackbarOk
+import com.dansdev.core.util.alert.snackbarProgress
 import com.dansdev.core.util.handleNavigationDir
 import com.dansdev.core.util.translucentStatusBar
 import kotlinx.coroutines.Dispatchers
@@ -56,6 +57,7 @@ abstract class CoreFragment<VB : ViewBinding, VM : CoreViewModel<*>, SVM : CoreS
             when (message) {
                 is AlertMessage.ErrorMessage -> binding.root.snackbarErr(message.content(resources))
                 is AlertMessage.SuccessMessage -> binding.root.snackbarOk(message.content(resources))
+                is AlertMessage.ProgressMessage -> binding.root.snackbarProgress(message, message.content(resources))
                 else -> throw IllegalArgumentException("You try to show new message type, please handle it")
             }
         }

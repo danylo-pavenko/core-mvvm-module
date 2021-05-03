@@ -1,10 +1,12 @@
 package com.dansdev.core
 
 import android.app.Dialog
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.annotation.LayoutRes
 import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
@@ -81,6 +83,8 @@ abstract class CoreBottomSheet<VB : ViewBinding, VM : CoreViewModel<*>, SVM : Co
         bottomSheetDialog.behavior.skipCollapsed = isFullScreen
         bottomSheetDialog.behavior.state = if (isFullScreen) BottomSheetBehavior.STATE_EXPANDED
         else BottomSheetBehavior.STATE_COLLAPSED
+        bottomSheetDialog.window?.statusBarColor = Color.TRANSPARENT
+        bottomSheetDialog.window?.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
 
         bottomSheetDialog.behavior.addBottomSheetCallback(object :
             BottomSheetBehavior.BottomSheetCallback() {

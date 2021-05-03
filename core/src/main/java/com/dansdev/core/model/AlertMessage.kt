@@ -20,4 +20,14 @@ sealed class AlertMessage {
             else text
         }
     }
+
+    data class ProgressMessage(@StringRes val message: Int = 0, val text: String = "") : AlertMessage() {
+
+        var dismiss: (() -> Unit)? = null
+
+        fun content(resources: Resources): CharSequence {
+            return if (message != 0) resources.getString(message)
+            else text
+        }
+    }
 }
