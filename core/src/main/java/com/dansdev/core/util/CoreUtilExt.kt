@@ -6,14 +6,20 @@ import timber.log.Timber
 
 fun <T : CoreViewState> MutableLiveData<T>.update(
     postUpdateEnabled: Boolean = true,
+    forceUpdate: Boolean = false,
     block: T.() -> Unit
 ) {
     val data = value ?: run {
         Timber.w("You try to update NULL value of livedata")
         return
     }
-    val hash = data.hashCode()
-    block(data)
-    val updatedHash = data.hashCode()
-    if (postUpdateEnabled && hash != updatedHash) postValue(data)
+    if (forceUpdate) {
+        block(data)
+        postValue(data)
+    } else {
+        val hash = data.hashCode()
+        block(data)
+        val updatedHash = data.hashCode()
+        if (postUpdateEnabled && hash != updatedHash) postValue(data)
+    }
 }

@@ -22,7 +22,7 @@
 ext.deps = [:]
 def versions = [:]
 versions.activity = '1.2.0'
-versions.android_gradle_plugin = '4.2.0-rc01'
+versions.android_gradle_plugin = '4.2.1'
 versions.google_services = '4.3.5'
 versions.annotations = "1.0.0"
 versions.appcompat = "1.2.0"
@@ -45,7 +45,7 @@ versions.fragment = "1.3.3"
 versions.glide = "4.8.0"
 versions.hamcrest = "1.3"
 versions.junit = "4.12"
-versions.kotlin = "1.4.32"
+versions.kotlin = "1.5.0"
 versions.lifecycle = "2.3.1"
 versions.material = "1.3.0"
 versions.mockito = "2.25.0"
@@ -53,12 +53,12 @@ versions.mockito_all = "1.10.19"
 versions.mockito_android = "2.25.0"
 versions.mockwebserver = "3.8.1"
 versions.navigation = "2.3.3"
-versions.okhttp_logging_interceptor = "4.9.0"
+versions.okhttp_logging_interceptor = "4.9.1"
 versions.paging = "3.0.0-alpha05"
 versions.recyclerview = "1.2.0-beta01"
 versions.retrofit = "2.9.0"
 versions.robolectric = "4.2"
-versions.room = "2.3.0-alpha01"
+versions.room = "2.3.0"
 versions.rx_android = "2.0.1"
 versions.rxjava2 = "2.1.3"
 versions.timber = "4.7.1"
@@ -76,7 +76,7 @@ versions.event_pipe = "1.0.2"
 versions.cell_adapter = "2.0.2"
 versions.xlegacy = "1.0.0"
 versions.merlin = "1.2.0"
-versions.koin = "2.2.2"
+versions.koin = "3.0.1"
 //versions.pager_indicator = "2.1.4"
 versions.pager_indicator = "4.1.2"
 versions.browser = "1.3.0"
@@ -85,14 +85,15 @@ versions.image_picker = "1.8"
 versions.lib_phone_number = "8.12.16"
 versions.app_lifecycle = "1.1.0.0"
 versions.install_ref = "2.2"
+versions.kotlinx_serialization = "1.2.0"
 versions.maven_plugin = "2.1"
 ext.versions = versions
 
 def build_versions = [:]
-build_versions.min_sdk = 21
+build_versions.min_sdk = 23
 build_versions.compile_sdk = 30
-build_versions.target_sdk = 29
-build_versions.build_tools = "29.0.3"
+build_versions.target_sdk = 30
+build_versions.build_tools = "30.0.3"
 ext.build_versions = build_versions
 
 def deps = [:]
@@ -112,6 +113,8 @@ deps.crashlytics = "com.google.firebase:firebase-crashlytics-gradle:$versions.cr
 deps.annotations = "androidx.annotation:annotation:$versions.annotations"
 
 deps.app_compat = "androidx.appcompat:appcompat:$versions.appcompat"
+
+deps.kotlinx_serialization_plugin = "org.jetbrains.kotlin:kotlin-serialization:$versions.kotlin"
 
 def app_secure = [:]
 app_secure.crypto = "androidx.security:security-crypto-ktx:$versions.app_secure_crypto"
@@ -138,6 +141,8 @@ deps.viewpager2 = "androidx.viewpager2:viewpager2:$versions.viewpager2"
 deps.constraint_layout = "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
 
 deps.core_ktx = "androidx.core:core-ktx:$versions.core_ktx"
+
+deps.kotlinx_serialization = "org.jetbrains.kotlinx:kotlinx-serialization-json:$versions.kotlinx_serialization"
 
 deps.xlegacy = "androidx.legacy:legacy-support-v4:$versions.xlegacy"
 
@@ -189,12 +194,9 @@ kotlin.allopen = "org.jetbrains.kotlin:kotlin-allopen:$versions.kotlin"
 deps.kotlin = kotlin
 
 def koin = [:]
-koin.plugin = "org.koin:koin-gradle-plugin:$versions.koin"
-koin.scope = "org.koin:koin-androidx-scope:$versions.koin"
-koin.view_model = "org.koin:koin-androidx-viewmodel:$versions.koin"
-koin.fragment = "org.koin:koin-androidx-fragment:$versions.koin"
-koin.android = "org.koin:koin-android:$versions.koin"
-koin.ext = "org.koin:koin-core-ext:$versions.koin"
+koin.android = "io.insert-koin:koin-android:$versions.koin"
+koin.ext = "io.insert-koin:koin-android-ext:$versions.koin"
+koin.work_manager = "io.insert-koin:koin-androidx-workmanager:$versions.koin"
 deps.koin = koin
 
 def lifecycle = [:]
