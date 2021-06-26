@@ -19,6 +19,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -56,7 +57,7 @@ abstract class CoreBottomSheet<VB : ViewBinding, VM : CoreViewModel<*>, SVM : Co
 
     private fun setupObserveConnection() {
         lifecycleScope.launch {
-            sharedViewModel.onConnectedStateUpdate().collect { hasConnection ->
+            sharedViewModel.onConnectedStateUpdate().collectLatest { hasConnection ->
                 withContext(Dispatchers.Main) {
                     if (hasConnection) view?.snackbarOk(R.string.network_available)
                     else view?.snackbarErr(R.string.no_connection)

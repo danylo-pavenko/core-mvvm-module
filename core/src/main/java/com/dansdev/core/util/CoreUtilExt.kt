@@ -17,9 +17,14 @@ fun <T : CoreViewState> MutableLiveData<T>.update(
         block(data)
         postValue(data)
     } else {
-        val hash = data.hashCode()
-        block(data)
-        val updatedHash = data.hashCode()
-        if (postUpdateEnabled && hash != updatedHash) postValue(data)
+        try {
+            val hash = data.hashCode()
+            block(data)
+            val updatedHash = data.hashCode()
+            if (postUpdateEnabled && hash != updatedHash) postValue(data)
+        } catch (e: Exception) {
+            Timber.e(e)
+            postValue(data)
+        }
     }
 }

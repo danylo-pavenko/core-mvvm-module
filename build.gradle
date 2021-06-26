@@ -8,7 +8,6 @@ buildscript {
         classpath deps.crashlytics
         classpath deps.kotlin.plugin
         classpath deps.navigation.safe_args_plugin
-        classpath deps.maven_plugin
     }
     repositories {
         google()
