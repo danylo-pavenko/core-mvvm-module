@@ -51,6 +51,7 @@ dependencies {
     implementation deps.pp_views
     implementation deps.coroutines.android
     implementation deps.timber
+    implementation deps.paperdb
 
     / Networking /
     implementation deps.retrofit.runtime

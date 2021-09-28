@@ -3,9 +3,13 @@ package com.dansdev.core.util
 import android.net.Uri
 import android.view.View
 import androidx.annotation.ColorRes
+import androidx.annotation.IdRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.dansdev.core.R
 import com.dansdev.core.model.NavigateDir
@@ -54,4 +58,9 @@ fun Fragment.translucentStatusBar(dark: Boolean = false) {
             View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
         requireActivity().window.navigationBarColor = ContextCompat.getColor(requireActivity(), R.color.black)
     }
+}
+
+fun AppCompatActivity.findNav(@IdRes fragmentHost: Int): NavController {
+    val navHostFragment = supportFragmentManager.findFragmentById(fragmentHost) as NavHostFragment
+    return navHostFragment.navController
 }
