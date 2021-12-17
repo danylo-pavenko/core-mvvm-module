@@ -20,4 +20,12 @@ abstract class CoreViewModel<VS: CoreViewState>: ViewModel() {
     fun onProgressStateUpdate(): LiveData<ProgressState> = progressState
 
     fun onViewStateUpdate(): LiveData<VS?> = viewStateUpdate
+
+    fun startProgress() {
+        progressState.postValue(ProgressState.Show)
+    }
+
+    fun finishProgress() {
+        progressState.postValue(ProgressState.Hide)
+    }
 }
